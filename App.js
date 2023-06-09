@@ -12,18 +12,19 @@ export default function App() {
     setCount(0)
   }
   function decrease(){
-    setCount(count-1)
+    if  (count>0)
+      setCount(count-1)
   }
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Számláló</Text>
       <Text style={styles.count}>{count}</Text>
-      <Button title="Növel"
+      <Button style={styles.button} title="Növel"
       onPress={increment}/>
-      <Button title="Csökkent"
-      onPress={decrease}/>
-      <Button title="Reset"
+      <Button style={styles.button} title="Reset"
       onPress={reset}/>
+      <Button style={styles.button} title="Csökkent"
+      onPress={decrease}/>
       <StatusBar style="auto" />
     </View>
   );
@@ -36,13 +37,17 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  title:{
+  title: {
     color:'white',
     fontSize:32,
   },
-  count:{
+  count: {
     color:'yellow',
-    fontSize:44,
+    fontSize: 44,
     alignItems: 'center',
+  },
+  button: {
+    padding: 20,
+    margin:20,
   },
 });
